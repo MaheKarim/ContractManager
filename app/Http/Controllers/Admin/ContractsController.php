@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyContractRequest;
 use App\Http\Requests\StoreContractRequest;
 use App\Http\Requests\UpdateContractRequest;
 use App\Models\Contract;
+use App\Models\ProjectStatus;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -28,11 +29,15 @@ class ContractsController extends Controller
     {
         abort_if(Gate::denies('contract_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+       // $statuses = ProjectStatus::all();
+
         $clients = User::whereHas('roles', function($q) {
             $q->where('id', 3); // Client role
         })->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.contracts.create', compact('clients'));
+       // dd($statuses);
+      //  return view('admin.contracts.create', compact('clients'));
+       return view('admin.contracts.create', compact('clients'));
     }
 
     public function store(StoreContractRequest $request)

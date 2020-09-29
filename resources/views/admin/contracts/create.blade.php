@@ -1,102 +1,169 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.contract.title_singular') }}
-    </div>
+    <div class="card">
+        <div class="card-header">
+            {{ trans('global.create') }} {{ trans('cruds.contract.title_singular') }}
+        </div>
 
-    <div class="card-body">
-        <form method="POST" action="{{ route("admin.contracts.store") }}" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="client_id">{{ trans('cruds.contract.fields.client') }}</label>
-                <select class="form-control select2 {{ $errors->has('client') ? 'is-invalid' : '' }}" name="client_id" id="client_id">
-                    @foreach($clients as $id => $client)
-                        <option value="{{ $id }}" {{ old('client_id') == $id ? 'selected' : '' }}>{{ $client }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('client'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('client') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.contract.fields.client_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="contract_date">{{ trans('cruds.contract.fields.contract_date') }}</label>
-                <input class="form-control date {{ $errors->has('contract_date') ? 'is-invalid' : '' }}" type="text" name="contract_date" id="contract_date" value="{{ old('contract_date') }}">
-                @if($errors->has('contract_date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('contract_date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.contract.fields.contract_date_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="subject">{{ trans('cruds.contract.fields.subject') }}</label>
-                <input class="form-control {{ $errors->has('subject') ? 'is-invalid' : '' }}" type="text" name="subject" id="subject" value="{{ old('subject', '') }}">
-                @if($errors->has('subject'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('subject') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.contract.fields.subject_helper') }}</span>
-            </div>
-
-            <div class="form-group">
-                <label for="budget">{{ trans('cruds.contract.fields.budget') }}</label>
-                <input class="form-control {{ $errors->has('budget') ? 'is-invalid' : '' }}" type="text" name="budget" id="budget" value="{{ old('budget', '') }}">
-                @if($errors->has('budget'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('budget') }}
-                    </div>
-                @endif
-                 <span class="help-block">{{ trans('cruds.contract.fields.budget_helper') }}</span>
-            </div>
-
-            <div class="form-group">
-                <label for="working_day">{{ trans('cruds.contract.fields.working_day') }}</label>
-                <input class="form-control {{ $errors->has('working_day') ? 'is-invalid' : '' }}" type="text" name="working_day" id="working_day" value="{{ old('working_day', '') }}">
-                @if($errors->has('working_day'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('working_day') }}
-                    </div>
-                @endif
-                 <span class="help-block">{{ trans('cruds.contract.fields.working_day_helper') }}</span>
-            </div>
-
-            <div class="form-group">
-                <label for="full_text">{{ trans('cruds.contract.fields.full_text') }}</label>
-                <textarea class="form-control {{ $errors->has('full_text') ? 'is-invalid' : '' }}" name="full_text" id="full_text">{{ old('full_text') }}</textarea>
-                @if($errors->has('full_text'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('full_text') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.contract.fields.full_text_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <div class="form-check {{ $errors->has('is_signed') ? 'is-invalid' : '' }}">
-                    <input type="hidden" name="is_signed" value="0">
-                    <input class="form-check-input" type="checkbox" name="is_signed" id="is_signed" value="1" {{ old('is_signed', 0) == 1 ? 'checked' : '' }}>
-                    <label class="form-check-label" for="is_signed">{{ trans('cruds.contract.fields.is_signed') }}</label>
+        <div class="card-body">
+            <form method="POST" action="{{ route("admin.contracts.store") }}" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <label for="client_id">{{ trans('cruds.contract.fields.client') }}</label>
+                    <select class="form-control select2 {{ $errors->has('client') ? 'is-invalid' : '' }}"
+                            name="client_id" id="client_id">
+                        @foreach($clients as $id => $client)
+                            <option
+                                value="{{ $id }}" {{ old('client_id') == $id ? 'selected' : '' }}>{{ $client }}</option>
+                        @endforeach
+                    </select>
+                    @if($errors->has('client'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('client') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.client_helper') }}</span>
                 </div>
-                @if($errors->has('is_signed'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('is_signed') }}
+
+
+
+                {{-- <div class="form-group">
+                    <label for="project_status_name_id">{{ trans('cruds.contract.fields.project_status_name_id') }}</label>
+                    <select class="form-control select2 {{ $errors->has('client') ? 'is-invalid' : '' }}"
+                            name="project_status_name_id" id="project_status_name_id">
+                        @php($statuses = \App\ProjectStatus::all())
+                        @foreach($clients as $id => $client)
+                            <option
+                                value="{{ $id }}" {{ old('project_status_name_id') == $id ? 'selected' : '' }}>{{ $project_status_name }}</option>
+                        @endforeach
+                    </select>
+                   @if($errors->has('client'))
+                      <div class="invalid-feedback">
+                          {{ $errors->first('client') }}
+                       </div>
+                   @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.project_status_name_id_helper') }}</span>
+                </div> --}}
+
+
+
+                {{-- <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Area</h4>
+                        <div class="registrations-info">
+                            <div class="row form-row reg-cont">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Select Your Area</label>
+                                        <select name="project_status_name_id" class="form-control select">
+                                            @php($statuses= \App\ProjectStatus::all())
+                                            @foreach ($statuses as $status )
+                                                <option
+                                                    {{ ( $client->project_status_name_id == $status->id) ? "Selected" : ""  }} value="{{$status->id}}">{{$status->project_status_name}}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.contract.fields.is_signed_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-danger" type="submit">
-                    {{ trans('global.save') }}
-                </button>
-            </div>
-        </form>
+                </div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <label for="contract_date">{{ trans('cruds.contract.fields.contract_date') }}</label>
+                    <input class="form-control date {{ $errors->has('contract_date') ? 'is-invalid' : '' }}" type="text"
+                           name="contract_date" id="contract_date" value="{{ old('contract_date') }}">
+                    @if($errors->has('contract_date'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('contract_date') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.contract_date_helper') }}</span>
+                </div>
+                <div class="form-group">
+                    <label for="subject">{{ trans('cruds.contract.fields.subject') }}</label>
+                    <input class="form-control {{ $errors->has('subject') ? 'is-invalid' : '' }}" type="text"
+                           name="subject" id="subject" value="{{ old('subject', '') }}">
+                    @if($errors->has('subject'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('subject') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.subject_helper') }}</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">{{ trans('cruds.contract.fields.budget') }}</label>
+                    <input class="form-control {{ $errors->has('budget') ? 'is-invalid' : '' }}" type="text"
+                           name="budget" id="budget" value="{{ old('budget', '') }}">
+                    @if($errors->has('budget'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('budget') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.budget_helper') }}</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="working_day">{{ trans('cruds.contract.fields.working_day') }}</label>
+                    <input class="form-control {{ $errors->has('working_day') ? 'is-invalid' : '' }}" type="text"
+                           name="working_day" id="working_day" value="{{ old('working_day', '') }}">
+                    @if($errors->has('working_day'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('working_day') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.working_day_helper') }}</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="full_text">{{ trans('cruds.contract.fields.full_text') }}</label>
+                    <textarea class="form-control {{ $errors->has('full_text') ? 'is-invalid' : '' }}" name="full_text"
+                              id="full_text">{{ old('full_text') }}</textarea>
+                    @if($errors->has('full_text'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('full_text') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.full_text_helper') }}</span>
+                </div>
+                <div class="form-group">
+                    <div class="form-check {{ $errors->has('is_signed') ? 'is-invalid' : '' }}">
+                        <input type="hidden" name="is_signed" value="0">
+                        <input class="form-check-input" type="checkbox" name="is_signed" id="is_signed"
+                               value="1" {{ old('is_signed', 0) == 1 ? 'checked' : '' }}>
+                        <label class="form-check-label"
+                               for="is_signed">{{ trans('cruds.contract.fields.is_signed') }}</label>
+                    </div>
+                    @if($errors->has('is_signed'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('is_signed') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.contract.fields.is_signed_helper') }}</span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-danger" type="submit">
+                        {{ trans('global.save') }}
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
 
 

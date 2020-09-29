@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20d51de7-3d7a-4406-ab46-c1e61ec88a4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ProjectStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_191813_create_project_statuses_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/ProjectStatusTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContractsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContractsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Admin/ContractsApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Admin/ContractsApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_29_000004_create_contracts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_29_000004_create_contracts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/contracts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contracts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/contracts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contracts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/contracts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contracts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/contracts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contracts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,12 +161,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1iAlUto35ptITPWB13f4VMfXdmU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -193,12 +196,15 @@
       <option name="presentableId" value="Default" />
       <updated>1601358295314</updated>
       <workItem from="1601358296809" duration="2664000" />
-      <workItem from="1601403557772" duration="2863000" />
+      <workItem from="1601403557772" duration="7805000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1601362491201">

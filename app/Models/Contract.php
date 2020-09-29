@@ -22,18 +22,20 @@ class Contract extends Model
         'deleted_at',
     ];
 
-    protected $fillable = [
-        'client_id',
-        'contract_date',
-        'subject',
-        'full_text',
-        'working_day',
-        'budget',
-        'is_signed',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+//    protected $fillable = [
+//        'client_id',
+//        'contract_date',
+//        'subject',
+//        'full_text',
+//        'working_day',
+//        'budget',
+//        'is_signed',
+//        'created_at',
+//        'updated_at',
+//        'deleted_at',
+//    ];
+
+    protected $guarded = [ ];
 
     protected function serializeDate(DateTimeInterface $date)
     {
@@ -43,6 +45,11 @@ class Contract extends Model
     public function client()
     {
         return $this->belongsTo(User::class, 'client_id');
+    }
+
+    public function project_status()
+    {
+        return $this->belongsTo(ProjectStatus::class, 'project_status_name_id', 'id');
     }
 
     public function getContractDateAttribute($value)

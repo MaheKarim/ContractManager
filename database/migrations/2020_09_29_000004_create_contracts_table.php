@@ -15,7 +15,8 @@ class CreateContractsTable extends Migration
             $table->longText('full_text')->nullable();
             $table->boolean('is_signed')->default(0)->nullable();
             $table->string('budget')->nullable();
-            $table->string('working_day')->nullable;
+            $table->string('working_day')->nullable();
+        //    $table->integer('project_status_name_id')->default(1)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
