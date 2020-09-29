@@ -29,7 +29,7 @@ class ContractsController extends Controller
     {
         abort_if(Gate::denies('contract_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-       // $statuses = ProjectStatus::all();
+        $id = ProjectStatus::all();
 
         $clients = User::whereHas('roles', function($q) {
             $q->where('id', 3); // Client role
@@ -37,7 +37,7 @@ class ContractsController extends Controller
 
        // dd($statuses);
       //  return view('admin.contracts.create', compact('clients'));
-       return view('admin.contracts.create', compact('clients'));
+       return view('admin.contracts.create', compact('clients', 'id'));
     }
 
     public function store(StoreContractRequest $request)

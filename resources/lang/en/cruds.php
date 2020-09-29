@@ -79,7 +79,7 @@ return [
             'subject_helper'       => ' ',
             'budget'               => 'Budget',
             'budget_helper'        => ' ',
-            'working_day'          => 'Working Day',
+            'working_day'          => 'End Within',
             'working_day_helper'   => ' ',
             'full_text'            => 'Project Description',
             'full_text_helper'     => ' ',

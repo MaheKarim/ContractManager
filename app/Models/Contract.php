@@ -47,9 +47,9 @@ class Contract extends Model
         return $this->belongsTo(User::class, 'client_id');
     }
 
-    public function project_status()
+    public function project()
     {
-        return $this->belongsTo(ProjectStatus::class, 'project_status_name_id', 'id');
+        return $this->belongsTo(ProjectStatus::class, 'project_status_name_id');
     }
 
     public function getContractDateAttribute($value)

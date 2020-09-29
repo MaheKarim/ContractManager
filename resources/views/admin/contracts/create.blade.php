@@ -28,23 +28,19 @@
 
 
 
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label for="project_status_name_id">{{ trans('cruds.contract.fields.project_status_name_id') }}</label>
                     <select class="form-control select2 {{ $errors->has('client') ? 'is-invalid' : '' }}"
                             name="project_status_name_id" id="project_status_name_id">
-                        @php($statuses = \App\ProjectStatus::all())
+
                         @foreach($clients as $id => $client)
                             <option
-                                value="{{ $id }}" {{ old('project_status_name_id') == $id ? 'selected' : '' }}>{{ $project_status_name }}</option>
+                                value="{{ $id }}" {{ old('project_status_name_id') == $id ? 'selected' : '' }}>{{ $project_status_name ?? '' }}</option>
                         @endforeach
                     </select>
-                   @if($errors->has('client'))
-                      <div class="invalid-feedback">
-                          {{ $errors->first('client') }}
-                       </div>
-                   @endif
-                    <span class="help-block">{{ trans('cruds.contract.fields.project_status_name_id_helper') }}</span>
-                </div> --}}
+
+
+                </div>
 
 
 
@@ -94,6 +90,8 @@
                     @endif
                     <span class="help-block">{{ trans('cruds.contract.fields.contract_date_helper') }}</span>
                 </div>
+
+
                 <div class="form-group">
                     <label for="subject">{{ trans('cruds.contract.fields.subject') }}</label>
                     <input class="form-control {{ $errors->has('subject') ? 'is-invalid' : '' }}" type="text"
@@ -120,7 +118,7 @@
 
                 <div class="form-group">
                     <label for="working_day">{{ trans('cruds.contract.fields.working_day') }}</label>
-                    <input class="form-control {{ $errors->has('working_day') ? 'is-invalid' : '' }}" type="text"
+                    <input class="form-control date {{ $errors->has('working_day') ? 'is-invalid' : '' }}" type="text"
                            name="working_day" id="working_day" value="{{ old('working_day', '') }}">
                     @if($errors->has('working_day'))
                         <div class="invalid-feedback">
