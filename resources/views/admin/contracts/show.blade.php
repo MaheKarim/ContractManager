@@ -47,6 +47,24 @@
                             {{ $contract->subject }}
                         </td>
                     </tr>
+
+                    <tr>
+                        <th>
+                            {{ trans('cruds.contract.fields.budget') }}
+                        </th>
+                        <td>
+                            {{ $contract->budget }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            {{ trans('cruds.contract.fields.working_day') }}
+                        </th>
+                        <td>
+                            {{ $contract->working_day }}
+                        </td>
+                    </tr>
                     <tr>
                         <th>
                             {{ trans('cruds.contract.fields.full_text') }}

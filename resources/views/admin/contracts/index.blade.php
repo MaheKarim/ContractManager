@@ -35,13 +35,21 @@
                             {{ trans('cruds.contract.fields.subject') }}
                         </th>
                         <th>
+                            {{ trans('cruds.contract.fields.budget') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.contract.fields.working_day') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.contract.fields.full_text') }}
                         </th>
+
                         <th>
                             {{ trans('cruds.contract.fields.is_signed') }}
                         </th>
+
                         <th>
-                            &nbsp;
+                            &nbsp;Action
                         </th>
                     </tr>
                 </thead>
@@ -64,7 +72,15 @@
                                 {{ $contract->subject ?? '' }}
                             </td>
                             <td>
-                                {{ $contract->full_text ?? '' }}
+                                {{ $contract->budget ?? '' }}
+                            </td>
+                            <td>
+                                {{ $contract->working_day ?? '' }}
+                            </td>
+                            <td>
+
+                                {{ \Illuminate\Support\Str::limit($contract->full_text ?? '', 35, '...') }}
+
                             </td>
                             <td>
                                 <span style="display:none">{{ $contract->is_signed ?? '' }}</span>
@@ -149,7 +165,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

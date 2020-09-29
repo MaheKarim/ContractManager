@@ -44,39 +44,27 @@
                 <span class="help-block">{{ trans('cruds.contract.fields.subject_helper') }}</span>
             </div>
 
-
             <div class="form-group">
-                <label for="budget">Project Budget</label>
+                <label for="budget">{{ trans('cruds.contract.fields.budget') }}</label>
                 <input class="form-control {{ $errors->has('budget') ? 'is-invalid' : '' }}" type="text" name="budget" id="budget" value="{{ old('budget', '') }}">
                 @if($errors->has('budget'))
                     <div class="invalid-feedback">
                         {{ $errors->first('budget') }}
                     </div>
                 @endif
-                {{-- <span class="help-block">{{ trans('cruds.contract.fields.budget_helper') }}</span> --}}
+                 <span class="help-block">{{ trans('cruds.contract.fields.budget_helper') }}</span>
             </div>
 
-
-
-
             <div class="form-group">
-                <label for="working_day">Working Day</label>
+                <label for="working_day">{{ trans('cruds.contract.fields.working_day') }}</label>
                 <input class="form-control {{ $errors->has('working_day') ? 'is-invalid' : '' }}" type="text" name="working_day" id="working_day" value="{{ old('working_day', '') }}">
                 @if($errors->has('working_day'))
                     <div class="invalid-feedback">
                         {{ $errors->first('working_day') }}
                     </div>
                 @endif
-                {{-- <span class="help-block">{{ trans('cruds.contract.fields.budget_helper') }}</span> --}}
+                 <span class="help-block">{{ trans('cruds.contract.fields.working_day_helper') }}</span>
             </div>
-
-
-
-
-
-
-
-
 
             <div class="form-group">
                 <label for="full_text">{{ trans('cruds.contract.fields.full_text') }}</label>
